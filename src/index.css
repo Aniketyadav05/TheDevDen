@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+@import "tailwindcss";
+
+.rock-salt {
+    font-family: "Rock Salt", cursive;
+    font-weight: 800;
+    font-style: normal;
+  }
+  .teko {
+    font-family: "Teko", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+  }
+.extra {
+    letter-spacing: 15px;
+}
+.blurred-box {
+  background: rgba(74, 73, 73, 0.187); /* Semi-transparent */
+  backdrop-filter: blur(20px); /* Apply blur */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  padding: 10px 20px;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  
+}
+.shiny-text {
+  color: #b5b5b5a4; /* Adjust this color to change intensity/style */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.shiny-text.disabled {
+  animation: none;
+}
