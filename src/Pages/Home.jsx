@@ -4,7 +4,7 @@ import { BlogCard, Button1, Container, PostCard,FadeInWrapper } from '../Compone
 import BlurText from '../Components/Animation/BlurText';
 import SplitText from '../Components/Animation/SplitText';
 import Hero from "../assets/Hero.jpg"
-import Foto from "../assets/Foto.png"
+import Foto from "../assets/foto.png"
 import TiltedCard from '../Components/Animation/TitledCard';
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
