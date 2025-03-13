@@ -9,7 +9,7 @@ import Home from "./Pages/Home.jsx"
 import {AuthLayout, Login} from "../src/Components/index.js"
 
 import AddPost from "./Pages/AddPost.jsx";
-import Signup from './Pages/Signup'
+import SignUp from './Pages/SignUp'
 import EditPost from "./Pages/EditPost";
 
 import Post from "./Pages/Post";
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         path: "/signup",
         element: (
             <AuthLayout authentication={false}>
-                <Signup />
+                <SignUp />
             </AuthLayout>
         ),
     },
