@@ -22,7 +22,7 @@ export class AuthService {
                 throw new Error("Account creation failed.");
             }
         } catch (error) {
-            console.error("createAccount error", error);
+            console.error("createAccount error");
             throw error; // Re-throw the error for the caller to handle
         }
     }
@@ -36,10 +36,10 @@ export class AuthService {
     async getCurrentUser() {
         try {
             const user = await this.account.get();
-            console.log("Appwrite service :: getCurrentUser :: user", user);
+            console.log("Appwrite service :: getCurrentUser :: user");
             return user;
         } catch (error) {
-            console.error("Appwrite service :: getCurrentUser :: error", error);
+            console.error("Appwrite service :: getCurrentUser :: error");
     
             // Handle specific error cases
             if (error.code === 401 || error.type === "user_not_authenticated") {
@@ -47,7 +47,7 @@ export class AuthService {
                 // Redirect the user to the login page or perform other actions
                 
             } else {
-                console.error("Unexpected error:", error);
+                console.error("Unexpected error:");
             }
     
             return null;
@@ -59,7 +59,7 @@ export class AuthService {
         try {
             await this.account.deleteSessions();
         } catch (error) {
-            console.log("logout error::",error);
+            console.log("logout error::");
             
         }
     }

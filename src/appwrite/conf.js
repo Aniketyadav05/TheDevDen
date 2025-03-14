@@ -31,7 +31,7 @@ export class Service{
                 }
             )
         } catch (error) {
-            console.log("createpost error",error);
+            console.log("createpost error");
             
         }
     }
@@ -50,7 +50,7 @@ export class Service{
                 }
             )
         } catch (error) {
-            console.log("update post error::",error);
+            console.log("update post error::");
             
         }
     }
@@ -64,7 +64,7 @@ export class Service{
             )
             return true;
         } catch (error) {
-            console.log("delete post error::",error);
+            console.log("delete post error::");
             return false;
         }
     }
@@ -76,7 +76,7 @@ export class Service{
                 slug
             )
         } catch (error) {
-            console.log("get post ka error",error);
+            console.log("get post ka error");
             
         }
     }
@@ -89,7 +89,7 @@ export class Service{
                 queries
             )
         } catch (error) {
-            console.log("get posts ka error",error);
+            console.log("get posts ka error");
             return false;
         }
     }
@@ -99,16 +99,16 @@ export class Service{
 
     async uploadFile(file) {
         try {
-          console.log("Uploading file:", file);
+          console.log("Uploading file:");
           const response = await this.bucket.createFile(
             config.appwriteBucketId,
             ID.unique(),
             file,
           );
-          console.log("File uploaded successfully:", response);
+          console.log("File uploaded successfully:");
           return response;
         } catch (error) {
-          console.error("uploadFile error:", error);
+          console.error("uploadFile error:");
           throw error; // Re-throw the error for the caller to handle
         }
       }
@@ -123,7 +123,7 @@ export class Service{
         }
         
         catch (error) {
-            console.log("delter file ka error",error);
+            console.log("delter file ka error");
             return false;
         }
     }
