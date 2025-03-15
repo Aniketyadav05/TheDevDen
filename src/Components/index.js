@@ -15,6 +15,7 @@ import Select from "./Select"
 import BlogCard from "./BlogCard";
 import Button1 from "./Button1"
 import FadeInWrapper from "./Animation/FadeInWrapper";
+import Loading from "./Loading";
 export {
     Header,
     Footer,
@@ -32,5 +33,6 @@ export {
     Select,
     BlogCard,
     Button1,
-    FadeInWrapper
+    FadeInWrapper,
+    Loading
 }

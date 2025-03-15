@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from "react-hook-form";
-import { Button, Input, RTE, Select } from "..";
+import { Button, Input, RTE, Select, Loading } from "..";
 import appwriteService from "../../appwrite/conf";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -17,6 +17,7 @@ export default function PostForm({post}) {
     })
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth?.userData || null);
+    const [loading, setLoading] = useState(false)
 
     const submit = async(data) => {
         if(post){
@@ -42,6 +43,7 @@ export default function PostForm({post}) {
                     if(dbPost) {
                         navigate(`/post/${dbPost.$id}`)
                     }
+                    
                 }
             }
 }
@@ -74,6 +76,11 @@ const slugTransform = useCallback((value) => {
   return (
     <form onSubmit={handleSubmit(submit)} className="flex ">
             <div className="w-2/3 px-2">
+            {loading && (
+                <div className="fixed inset-0 flex items-center justify-center  z-50">
+                    <Loading /> 
+                </div>
+            )}
                 <Input
                     label="Title :"
                     placeholder="Title"

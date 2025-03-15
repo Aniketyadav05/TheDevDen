@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import appwriteService from "../appwrite/conf";
-import { Button, Button1, Container } from "../Components/index";
+import { Button, Button1, Container, Loading } from "../Components/index";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 const Post = () => {
     const [post, setPost] = useState(null);
     const { slug } = useParams();
     const navigate = useNavigate();
-
+    const [loading, setLoading] = useState(false)
     const userData = useSelector((state) => state.auth.userData);
 
     const isAuthor = post && userData ? post.userId === userData.$id : false;
@@ -29,6 +29,7 @@ const Post = () => {
                 navigate("/");
             }
             else{
+                setLoading(true)
                 console.log("nhi hu idelte")
             }
         });
@@ -37,6 +38,11 @@ const Post = () => {
     return post ? (
         <div className="py-8">
             <Container>
+                {loading && (
+                                <div className="fixed inset-0 flex items-center justify-center  z-50">
+                                    <Loading /> 
+                                </div>
+                            )}
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2 h-100">
                     <img
                         src={appwriteService.getFilePreview(post.featuredImage)}

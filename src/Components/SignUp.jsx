@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import authService from '../appwrite/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../Store/authSlice'
-import { Button, Input, Logo } from './index'
+import { Button, Input, Logo,Loading } from './index'
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 const SignUp = () => {
@@ -10,9 +10,11 @@ const SignUp = () => {
     const [error, setError] = useState("")
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
+    const [loading, setLoading] = useState(false)
 
     const create = async (data) => {
         setError("")
+        setLoading(true)
         try {
             const userData = await authService.createAccount(data)
             if (userData) {
@@ -22,11 +24,19 @@ const SignUp = () => {
             }
         } catch (error) {
             setError(error.message)
+            setLoading(true)
+        } finally {
+            setLoading(false)
         }
     }
 
     return (
         <div className="flex items-center justify-center">
+            {loading && (
+                <div className="fixed inset-0 flex items-center justify-center  z-50">
+                    <Loading /> 
+                </div>
+            )}
             <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
                 <div className="mb-2 flex justify-center">
                     <span className="inline-block w-full max-w-[120px]">
